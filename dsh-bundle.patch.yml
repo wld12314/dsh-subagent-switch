@@ -1,0 +1,34 @@
+# dsh-bundle.patch.yml — Cordis entry-list patch for @local/subagent-switch.
+#
+# DSH reads `dsh.bundle.patch` from package.json and applies it AFTER every
+# bundle layer (profile patch first, then home patch outranks). The dialect is
+# the CORDIS ENTRY LIST, not a bespoke "frontend / configSchema / ui" schema.
+# Verified against real patches shipped in resources/app.asar:
+#   @deepseek-ai/dsh-experimental-auto-review/cordis.patch.yml          (plain insert)
+#   @deepseek-ai/dsh-experimental-plugin-market-bundle/cordis.patch.yml (insert + disabled: !!js)
+#   @deepseek-ai/dsh-experimental-session-search/cordis.patch.yml       (group + isolate + nested config)
+# and against a working local plugin that ships both halves the same way.
+#
+# THIS ROW mounts the HOST (Node) half only: lib/apply.js — the subagent router
+# that wraps ctx.subagents.startActivation(...) and reads the model catalog
+# through the Cordis `llm` service (ctx.llm.listProviders / listModels /
+# resolveModelInfo). There is no ctx.listModels() on the host side; that name
+# only exists on the browser RPC client.
+#
+# The BROWSER half (the extra panel) is not a second row here. A package that
+# ships its own client bundle declares it in package.json:
+#     "dsh": { "client": { "platform": "web", "inject": [...] } }
+#     "exports": { "./client": { "default": "./lib/client.js" } }
+# DSH then loads lib/client.js into the browser module table
+# (window.__ModuleLoader__.load({ id, factory })), where it registers the panel.
+- insert:
+    - id: '@local/subagent-switch'
+      name: '@local/subagent-switch'
+      config:
+        enabled: true
+        panelTitle: 子代理模型切换
+        panelVisibleByDefault: false
+        autoRouteSubagents: true
+        forceOverride: false
+        allowedProviders: []
+        resolveAllowedProviders: null

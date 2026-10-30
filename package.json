@@ -1,0 +1,60 @@
+{
+  "name": "@local/subagent-switch",
+  "version": "0.1.0",
+  "description": "DSH desktop plugin: routes every subagent to the best available local model — free-first, quota-aware, capability-matched — and adds a control panel next to the session model bar.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/apply.js",
+  "exports": {
+    ".": "./lib/apply.js",
+    "./lib/router": "./lib/router.js",
+    "./lib/models": "./lib/models.js",
+    "./lib/quota": "./lib/quota.js",
+    "./lib/tags": "./lib/tags.js",
+    "./lib/ui/panel": "./lib/ui/panel.js",
+    "./client": "./lib/ui/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE",
+    "config.example.json",
+    "dsh-bundle.patch.yml"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "subagent",
+    "model-router",
+    "model-routing",
+    "llm-router",
+    "auto-switch",
+    "quota",
+    "cost-aware"
+  ],
+  "author": "wld12314",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wld12314/dsh-subagent-switch.git"
+  },
+  "homepage": "https://github.com/wld12314/dsh-subagent-switch#readme",
+  "bugs": {
+    "url": "https://github.com/wld12314/dsh-subagent-switch/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./dsh-bundle.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

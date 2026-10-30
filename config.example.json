@@ -1,0 +1,69 @@
+{
+  "subagent-switch": {
+    "enabled": true,
+
+    "panelTitle": "子代理模型切换",
+    "panelVisibleByDefault": false,
+
+    "defaultModel": "",
+    "routingTable": [
+      {
+        "category": "coding",
+        "defaultModel": ""
+      },
+      {
+        "category": "research",
+        "defaultModel": ""
+      },
+      {
+        "category": "writing",
+        "defaultModel": ""
+      }
+    ],
+
+    "modelTiers": [
+      "free",
+      "free_quota",
+      "paid"
+    ],
+
+    "cheapBand": [
+      "free",
+      "free_quota"
+    ],
+
+    "escalateOnMiss": true,
+    "escalateMinScore": 1,
+
+    "pricing": {
+      "freeMultiplierMax": 0,
+      "quotaMultiplierMax": 0.15
+    },
+
+    "tierMap": {},
+
+    "tags": {},
+
+    "overridesPath": "",
+
+    "blacklist": [],
+
+    "autoRouteSubagents": true,
+    "forceOverride": false,
+    "allowedProviders": [],
+    "resolveAllowedProviders": null,
+
+    "quota": {
+      "checkIntervalMs": 300000,
+      "autoFallbackOnExhaustion": true,
+      "logQuotaEvents": true
+    },
+
+    "tagSync": {
+      "enabled": false,
+      "source": "manual",
+      "webSearchProvider": "open-web",
+      "cacheTtlHours": 24
+    }
+  }
+}
