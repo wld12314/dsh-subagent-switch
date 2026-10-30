@@ -141,7 +141,7 @@
           "source": {
             "type": "git",
             "url": "https://github.com/wld12314/dsh-subagent-switch",
-            "commit": "095f71541f600f859a4065304627710f15fd8dca"
+            "commit": "0972a912ecdbf891bf8f819eecbb7ace10f4f021"
           },
           "engines": {
             "dsh": ">=0.2.0"
