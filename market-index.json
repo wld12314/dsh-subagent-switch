@@ -1,17 +1,23 @@
 {
   "format": 1,
   "title": {
-    "en": "Subagent Switch",
-    "zh": "子代理模型切换"
+    "en": "Subagent Switch — DSH model routing",
+    "zh": "子代理模型切换 — DSH 模型路由"
   },
   "description": {
-    "en": "An index of DSH plugins that route work to the best available model.",
-    "zh": "把任务路由到最合适模型的 DSH 插件索引。"
+    "en": "A curated index of DSH plugins that route agent work to the best available model: free-first, quota-aware and capability-matched.",
+    "zh": "精选的 DSH 插件索引：把 agent 的任务路由到最合适的模型 —— 免费优先、额度感知、能力匹配。"
   },
   "metadata": {
     "categories": {
       "model-routing": {
         "title": { "en": "Model Routing", "zh": "模型路由" }
+      },
+      "subagent": {
+        "title": { "en": "Subagents", "zh": "子代理" }
+      },
+      "cost-control": {
+        "title": { "en": "Cost Control", "zh": "成本控制" }
       },
       "agent-tools": {
         "title": { "en": "Agent Tools", "zh": "代理工具" }
@@ -27,11 +33,29 @@
       "capability-tags": {
         "title": { "en": "Capability Tags", "zh": "能力标签" }
       },
+      "auto-switch": {
+        "title": { "en": "Auto Switch", "zh": "自动切换" }
+      },
+      "cost-saving": {
+        "title": { "en": "Cost Saving", "zh": "省成本" }
+      },
+      "multi-provider": {
+        "title": { "en": "Multi Provider", "zh": "多 provider" }
+      },
       "no-dependencies": {
-        "title": { "en": "No Dependencies", "zh": "零依赖" }
+        "title": { "en": "Zero Dependencies", "zh": "零依赖" }
       },
       "chinese-ui": {
         "title": { "en": "Chinese UI", "zh": "中文界面" }
+      },
+      "zero-config": {
+        "title": { "en": "Works Out Of The Box", "zh": "开箱可用" }
+      }
+    },
+    "sortKeys": {
+      "stars": {
+        "title": { "en": "Stars", "zh": "星数" },
+        "order": "desc"
       }
     }
   },
@@ -57,30 +81,63 @@
           "模型路由",
           "自动切换",
           "子代理",
+          "子代理模型",
           "免费优先",
           "额度",
+          "额度感知",
+          "余额",
           "能力标签",
+          "擅长",
+          "不擅长",
           "成本优化",
+          "省钱",
+          "多模型",
+          "优先级",
+          "插件",
           "model routing",
+          "model router",
           "auto switch",
+          "auto model",
           "subagent",
+          "subagent model",
           "free first",
+          "free tier",
           "quota",
+          "quota aware",
+          "credit",
+          "capability",
           "capability tags",
-          "cost aware"
+          "cost aware",
+          "cost saving",
+          "multi provider",
+          "multi model",
+          "router",
+          "routing",
+          "priority",
+          "dsh",
+          "dsh plugin",
+          "deepseek harness",
+          "agent orchestration"
         ],
         "labels": [
           "free-first",
           "quota-aware",
           "capability-tags",
+          "auto-switch",
+          "cost-saving",
+          "multi-provider",
           "no-dependencies",
-          "chinese-ui"
-        ]
+          "chinese-ui",
+          "zero-config"
+        ],
+        "sortKeys": {
+          "stars": 0
+        }
       },
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1761883200,
+          "publishTimestamp": 1793369411,
           "source": {
             "type": "git",
             "url": "https://github.com/wld12314/dsh-subagent-switch",

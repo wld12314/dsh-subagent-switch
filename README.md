@@ -89,6 +89,44 @@ bundle 只在启动时加载。重启后左侧栏会多一个「子代理模型�
 
 ---
 
+## 装上之后
+
+左侧栏多了「子代理模型切换」入口，点进去是上面说的那个面板。**不需要改任何配置**：默认就是免费优先 + 能力匹配 + 门禁，装上即用。
+
+## 怎么给插件市场扫到
+
+本插件自带一个 **[format-1 市场索引](market-index.json)**，里面写了标题、分类、标签、关键词（中英双语 40 个）、版本、git 源和 commit。DSH 的「发现」页就是读这种索引文件的。
+
+两条路把它加进去：
+
+**A. 在界面里加（推荐）**
+
+1. 左侧栏 → **插件** → **实验性插件** 旁的 **更多** → 启用 **自定义插件市场**
+2. 回到插件页，切到 **发现** 标签
+3. 在索引源里填：
+
+```
+https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json
+```
+
+4. 搜「子代理」「模型路由」「quota」「routing」都能命中，然后点安装
+
+**B. 直接写进 profile**
+
+`<profile>/cordis.patch.yml` 里给 `plugin-market` 那行加 `indexes`：
+
+```yaml
+- id: plugin-market
+  name: '@deepseek-ai/dsh-plugin-market'
+  config:
+    indexes:
+      - https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json
+```
+
+> ⚠️ **索引不会自动被扫描到。** DSH 的插件市场**没有中央注册表**，`indexes` 默认是空数组，不会主动去 GitHub 上找插件 —— 只读你加进去的那几个 URL。所以「上架」这件事在这个生态里就等于「产出一个索引文件 + 把它的地址告诉用户」，没有别的一步。
+
+本地已经装过（`link:` 装机）的话不用走这条路，那只是给**别人**用的分发方式。
+
 ## 怎么用
 
 打开面板，从上到下：
