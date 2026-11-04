@@ -43,9 +43,34 @@
 
 ## 安装
 
+### 从 GitHub 装（推荐给使用者）
+
+```bash
+cd <你的 profile 目录>          # 官方 profile 一般在 ~/.dsh/profiles/desktop
+pnpm add "git+https://github.com/wld12314/dsh-subagent-switch#v0.1.1"
+```
+
+然后在 `<profile>/cordis.patch.yml` 里插一行：
+
+```yaml
+- insert:
+    - id: '@local/subagent-switch'
+      name: '@local/subagent-switch'
+```
+
+重启 DSH，左侧栏出现「子代理模型切换」。
+
+> 用 tag 而不是 `main`，是为了你装到的版本不会随我后续提交变化。想跟最新就换成 `#main`。
+
+### 或者走插件市场
+
+把 [market-index.json](https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json) 加进 Discover 的索引源，搜「子代理」「模型路由」「quota」都能命中，然后点安装。界面上怎么加见下面「[怎么给插件市场扫到](#怎么给插件市场扫到)」。
+
+### 从源码开发（`link:` 方式）
+
 插件走 DSH 的标准 profile 机制（和官方插件一样），三处改动，都可逆。
 
-### 1. 放进 profile
+#### 1. 放进 profile
 
 ```bash
 # 假设插件源码在 <插件目录>，profile 在 <profile 目录>
@@ -69,7 +94,7 @@
 }
 ```
 
-### 2. 建软链接
+#### 2. 建软链接
 
 ```bash
 # Linux / macOS
@@ -81,7 +106,7 @@ New-Item -ItemType Junction `
   -Target "<插件目录>"
 ```
 
-### 3. 重启 DSH
+#### 3. 重启 DSH
 
 bundle 只在启动时加载。重启后左侧栏会多一个「子代理模型切换」入口。
 
