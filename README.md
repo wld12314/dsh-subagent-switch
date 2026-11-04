@@ -2,6 +2,15 @@
 
 **给 DeepSeek Harness（DSH）的子代理自动挑模型的插件。** 每次 spawn 子代理时，它会先看一眼你本机所有接入的模型，然后按「便宜优先 + 能力匹配 + 额度够不够」替这次任务选一个，再把结果写进子代理的会话配置里。默认只花订阅里已经付过的钱；便宜档确实没人擅长这件事时，才允许升到付费档。
 
+![面板实际截图](docs/panel.jpg)
+
+> 上面是这台机器上的真实截图（104 个模型接入）。从上往下：
+> **顶部几行**是这次判断的依据 —— 档位顺序、被忽略的 provider、参与自动路由的 provider、升级付费开没开、手动优先级钉了几个。
+> **「本次路由预览」**把六类任务当前会选到谁、为什么选它一次列全：`coding` 落在免费档的 `Hy4 · x0.00`（`band-match score=10`）；`research` 和 `writing` 在便宜档里没人真正擅长，于是往上找到真匹配的 `DeepSeek-V4-Pro`、`GLM-5V-Turbo · x0.51`，标「升级付费」，依据写明是 `escalated ... (cheap band had no match)`。
+> **「本地模型目录」**是完整候选池，每行有档位、状态（可用 / 仅列出·不路由 / 额度用尽）、优先级 ↑↓、以及标了「推测」或「手写」来源的擅长/不擅长。
+>
+> 这张图想说明的就一件事：**它的每次选择都带理由**，不是黑箱。
+
 > Subagents in DSH normally inherit whatever model the parent session is on. If you have 100+ models across several providers, that means your research subagent is burning `x1.62` tokens to answer a one-line question — or your coding subagent is running on the free model that's explicitly bad at code. This plugin intercepts the spawn and picks per task instead.
 
 如果你觉得它有用，**给个 Star** ⭐ —— 这类小工具没什么曝光，一颗星就是最直接的反馈，也让后面需要它的人更容易搜到。
@@ -116,16 +125,7 @@ bundle 只在启动时加载。重启后左侧栏会多一个「子代理模型�
 
 ## 装上之后
 
-左侧栏多了「子代理模型切换」入口，点进去是上面说的那个面板。**不需要改任何配置**：默认就是免费优先 + 能力匹配 + 门禁，装上即用。
-
-![面板实际截图](docs/panel.jpg)
-
-> 上面是这台机器上的真实截图（104 个模型接入）。从上往下：
-> **顶部几行**是这次判断的依据 —— 档位顺序、被忽略的 provider、参与自动路由的 provider、升级付费开没开、手动优先级钉了几个。
-> **「本次路由预览」**把六类任务当前会选到谁、为什么选它一次列全：`coding` 落在免费档的 `Hy4 · x0.00`（`band-match score=10`）；`research` 和 `writing` 在便宜档里没人真正擅长，于是往上找到真匹配的 `DeepSeek-V4-Pro`、`GLM-5V-Turbo · x0.51`，标「升级付费」，依据写明是 `escalated ... (cheap band had no match)`。
-> **「本地模型目录」**是完整候选池，每行有档位、状态（可用 / 仅列出·不路由 / 额度用尽）、优先级 ↑↓、以及标了「推测」或「手写」来源的擅长/不擅长。
->
-> 这张图想说明的就一件事：**它的每次选择都带理由**，不是黑箱。
+左侧栏多了「子代理模型切换」入口，点进去就是上面开头那张图里的面板。**不需要改任何配置**：默认就是免费优先 + 能力匹配 + 门禁，装上即用。
 
 ## 怎么给插件市场扫到
 
