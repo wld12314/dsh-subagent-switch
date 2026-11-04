@@ -1,6 +1,6 @@
 {
   "name": "@local/subagent-switch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DSH desktop plugin: routes every subagent to the best available local model — free-first, quota-aware, capability-matched — and adds a control panel next to the session model bar.",
   "license": "MIT",
   "type": "module",
@@ -17,6 +17,7 @@
   },
   "files": [
     "lib",
+    "docs",
     "README.md",
     "LICENSE",
     "config.example.json",
