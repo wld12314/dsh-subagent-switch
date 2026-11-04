@@ -136,12 +136,12 @@
       },
       "versions": [
         {
-          "version": "0.1.0",
-          "publishTimestamp": 1793369411,
+          "version": "0.1.1",
+          "publishTimestamp": 1793802225,
           "source": {
             "type": "git",
             "url": "https://github.com/wld12314/dsh-subagent-switch",
-            "commit": "0972a912ecdbf891bf8f819eecbb7ace10f4f021"
+            "commit": "ab0c39868e011e100c4396ea23e0a4bf20c8cbdb"
           },
           "engines": {
             "dsh": ">=0.2.0"
