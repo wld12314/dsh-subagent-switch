@@ -56,7 +56,7 @@
 
 ```bash
 cd <你的 profile 目录>          # 官方 profile 一般在 ~/.dsh/profiles/desktop
-pnpm add "git+https://github.com/wld12314/dsh-subagent-switch#v0.1.1"
+pnpm add "git+https://github.com/AshenSeeker/dsh-subagent-switch#v0.1.1"
 ```
 
 然后在 `<profile>/cordis.patch.yml` 里插一行：
@@ -73,7 +73,7 @@ pnpm add "git+https://github.com/wld12314/dsh-subagent-switch#v0.1.1"
 
 ### 或者走插件市场
 
-把 [market-index.json](https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json) 加进 Discover 的索引源，搜「子代理」「模型路由」「quota」都能命中，然后点安装。界面上怎么加见下面「[怎么给插件市场扫到](#怎么给插件市场扫到)」。
+把 [market-index.json](https://raw.githubusercontent.com/AshenSeeker/dsh-subagent-switch/main/market-index.json) 加进 Discover 的索引源，搜「子代理」「模型路由」「quota」都能命中，然后点安装。界面上怎么加见下面「[怎么给插件市场扫到](#怎么给插件市场扫到)」。
 
 ### 从源码开发（`link:` 方式）
 
@@ -140,7 +140,7 @@ bundle 只在启动时加载。重启后左侧栏会多一个「子代理模型�
 3. 在索引源里填：
 
 ```
-https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json
+https://raw.githubusercontent.com/AshenSeeker/dsh-subagent-switch/main/market-index.json
 ```
 
 4. 搜「子代理」「模型路由」「quota」「routing」都能命中，然后点安装
@@ -154,7 +154,7 @@ https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index
   name: '@deepseek-ai/dsh-plugin-market'
   config:
     indexes:
-      - https://raw.githubusercontent.com/wld12314/dsh-subagent-switch/main/market-index.json
+      - https://raw.githubusercontent.com/AshenSeeker/dsh-subagent-switch/main/market-index.json
 ```
 
 > ⚠️ **索引不会自动被扫描到。** DSH 的插件市场**没有中央注册表**，`indexes` 默认是空数组，不会主动去 GitHub 上找插件 —— 只读你加进去的那几个 URL。所以「上架」这件事在这个生态里就等于「产出一个索引文件 + 把它的地址告诉用户」，没有别的一步。

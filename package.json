@@ -35,14 +35,14 @@
     "quota",
     "cost-aware"
   ],
-  "author": "wld12314",
+  "author": "AshenSeeker",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wld12314/dsh-subagent-switch.git"
+    "url": "git+https://github.com/AshenSeeker/dsh-subagent-switch.git"
   },
-  "homepage": "https://github.com/wld12314/dsh-subagent-switch#readme",
+  "homepage": "https://github.com/AshenSeeker/dsh-subagent-switch#readme",
   "bugs": {
-    "url": "https://github.com/wld12314/dsh-subagent-switch/issues"
+    "url": "https://github.com/AshenSeeker/dsh-subagent-switch/issues"
   },
   "dsh": {
     "bundle": {

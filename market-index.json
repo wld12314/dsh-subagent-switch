@@ -70,10 +70,10 @@
         "en": "Routes every subagent to the best available local model — free-first, quota-aware, capability-matched — and adds a control panel next to the session model bar.",
         "zh": "每次 spawn 子代理时按任务自动挑模型：便宜优先、能力匹配、额度感知；并额外提供一个独立面板，不改动原模型选择栏。"
       },
-      "author": "wld12314",
-      "homepage": "https://github.com/wld12314/dsh-subagent-switch#readme",
+      "author": "AshenSeeker",
+      "homepage": "https://github.com/AshenSeeker/dsh-subagent-switch#readme",
       "repository": {
-        "url": "https://github.com/wld12314/dsh-subagent-switch"
+        "url": "https://github.com/AshenSeeker/dsh-subagent-switch"
       },
       "metadata": {
         "category": "model-routing",
@@ -140,7 +140,7 @@
           "publishTimestamp": 1793802225,
           "source": {
             "type": "git",
-            "url": "https://github.com/wld12314/dsh-subagent-switch",
+            "url": "https://github.com/AshenSeeker/dsh-subagent-switch",
             "commit": "13bc68107cade31c0161ef05a577664d80b6ea26"
           },
           "engines": {
